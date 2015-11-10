@@ -1268,7 +1268,7 @@ class fMailbox
 
 					$envelope = $details['envelope'];
 					$info['date']    = $envelope[0] != 'NIL' ? $envelope[0] : '';
-					$info['from']    = self::joinEmails($envelope[2]);
+					$info['from']    = self::decodeHeader(self::joinEmails($envelope[2]));
 					if (preg_match('#=\?[^\?]+\?[QB]\?[^\?]+\?=#', $envelope[1])) {
 						do {
 							$last_subject = $envelope[1];
